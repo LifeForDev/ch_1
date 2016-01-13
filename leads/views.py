@@ -13,3 +13,4 @@ class LeadAdd(CreateView):
     model = Lead
     form_class = LeadForm
     template_name = 'leads/create.html'
+

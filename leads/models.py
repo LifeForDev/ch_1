@@ -18,7 +18,7 @@ class Lead(models.Model):
     )
 
     name = models.CharField(max_length=32)
-    gender = models.CharField(max_length=12, choices=GENDER_CHOICES)
+    gender = models.CharField(max_length=12, choices=GENDER_CHOICES, default='Male')
     card_number = models.CharField(
         max_length=15,
         blank=True,
@@ -31,8 +31,8 @@ class Lead(models.Model):
             )
         ]
     )
-    expiry_date = models.DateField(blank=True, validators=[expireValid])
-    professional = models.BooleanField(max_length=3, choices=PROFESSIONAL_CHOICES)
+    expiry_date = models.DateField(blank=True, null=True, validators=[expireValid])
+    professional = models.CharField(max_length=3, default='No', choices=PROFESSIONAL_CHOICES)
 
     def __unicode__(self):
         return self.name
