@@ -24,7 +24,7 @@ class Lead(models.Model):
         blank=True,
         validators=[
             RegexValidator(
-                regex='^[XTW0-9]{8-15}$',
+                regex=r'^[XTW0-9]{8,15}$',
                 message='Card Number must be contain digital or X T W' +
                         ' and have length from 8 to 15 characters',
                 code='Invalid_card_number'
